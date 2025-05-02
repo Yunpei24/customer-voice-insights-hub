@@ -24,8 +24,8 @@ const FeedbackForm = () => {
     
     if (!rating) {
       toast({
-        title: "Rating Required",
-        description: "Please provide a rating for your feedback.",
+        title: "Note requise",
+        description: "Veuillez attribuer une note à votre avis.",
         variant: "destructive",
       });
       return;
@@ -41,8 +41,8 @@ const FeedbackForm = () => {
     });
     
     toast({
-      title: "Feedback Submitted",
-      description: "Thank you for your valuable feedback!",
+      title: "Avis soumis",
+      description: "Merci pour votre précieux retour !",
     });
     
     // Reset the form
@@ -55,23 +55,23 @@ const FeedbackForm = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <Label htmlFor="category" className="text-secondary">Category</Label>
+        <Label htmlFor="category" className="text-secondary">Catégorie</Label>
         <select
           id="category"
           className="flex h-10 w-full rounded-md border border-primary/20 bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
-          <option value="general">General</option>
-          <option value="billing">Billing</option>
-          <option value="service">Service Quality</option>
-          <option value="outage">Power Outage</option>
-          <option value="customer_service">Customer Service</option>
+          <option value="general">Général</option>
+          <option value="billing">Facturation</option>
+          <option value="service">Qualité du service</option>
+          <option value="outage">Coupure de courant</option>
+          <option value="customer_service">Service client</option>
         </select>
       </div>
       
       <div>
-        <Label className="text-secondary">Rating</Label>
+        <Label className="text-secondary">Note</Label>
         <div className="flex gap-1 mt-1">
           {[1, 2, 3, 4, 5].map((star) => (
             <button
@@ -93,10 +93,10 @@ const FeedbackForm = () => {
       </div>
       
       <div>
-        <Label htmlFor="comment" className="text-secondary">Comment</Label>
+        <Label htmlFor="comment" className="text-secondary">Commentaire</Label>
         <Textarea
           id="comment"
-          placeholder="Share your experience or suggestion..."
+          placeholder="Partagez votre expérience ou suggestion..."
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           rows={4}
@@ -105,7 +105,7 @@ const FeedbackForm = () => {
       </div>
       
       <div>
-        <Label htmlFor="image" className="text-secondary">Upload Image (Optional)</Label>
+        <Label htmlFor="image" className="text-secondary">Télécharger une image (Optionnel)</Label>
         <Input 
           id="image" 
           type="file" 
@@ -115,7 +115,7 @@ const FeedbackForm = () => {
         />
         {image && (
           <p className="text-sm text-muted-foreground mt-1">
-            Selected file: {image.name}
+            Fichier sélectionné : {image.name}
           </p>
         )}
       </div>
@@ -124,7 +124,7 @@ const FeedbackForm = () => {
         type="submit" 
         className="w-full bg-gradient-to-r from-secondary to-accent text-white hover:opacity-90"
       >
-        Submit Feedback
+        Soumettre l'avis
       </Button>
     </form>
   );

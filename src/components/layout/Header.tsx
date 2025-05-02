@@ -25,17 +25,17 @@ const Header = () => {
             </div>
             <div>
               <h1 className="text-xl font-bold">SENELEC</h1>
-              <p className="text-xs text-primary-foreground/80">Customer Voice</p>
+              <p className="text-xs text-primary-foreground/80">Voix du Client</p>
             </div>
           </div>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-4">
-            <Button variant="ghost" onClick={() => navigate("/")}>Dashboard</Button>
-            <Button variant="ghost" onClick={() => navigate("/feedback")}>My Feedback</Button>
-            <Button variant="ghost" onClick={() => navigate("/profile")}>Profile</Button>
+            <Button variant="ghost" onClick={() => navigate("/")}>Tableau de bord</Button>
+            <Button variant="ghost" onClick={() => navigate("/feedback")}>Mes avis</Button>
+            <Button variant="ghost" onClick={() => navigate("/profile")}>Profil</Button>
             <Button variant="secondary" className="bg-secondary text-white hover:bg-secondary/90">
-              Log Out
+              Déconnexion
             </Button>
           </nav>
 
@@ -59,7 +59,7 @@ const Header = () => {
               }}
             >
               <BarChart4 className="mr-2 h-5 w-5" />
-              Dashboard
+              Tableau de bord
             </Button>
             <Button 
               variant="ghost" 
@@ -70,7 +70,7 @@ const Header = () => {
               }}
             >
               <MessageSquare className="mr-2 h-5 w-5" />
-              My Feedback
+              Mes avis
             </Button>
             <Button 
               variant="ghost" 
@@ -81,11 +81,11 @@ const Header = () => {
               }}
             >
               <User className="mr-2 h-5 w-5" />
-              Profile
+              Profil
             </Button>
             <Button variant="secondary" className="w-full justify-start bg-secondary text-white hover:bg-secondary/90">
               <LogOut className="mr-2 h-5 w-5" />
-              Log Out
+              Déconnexion
             </Button>
           </nav>
         )}
