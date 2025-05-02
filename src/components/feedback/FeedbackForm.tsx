@@ -55,10 +55,10 @@ const FeedbackForm = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <Label htmlFor="category">Category</Label>
+        <Label htmlFor="category" className="text-secondary">Category</Label>
         <select
           id="category"
-          className="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2"
+          className="flex h-10 w-full rounded-md border border-primary/20 bg-background px-3 py-2 text-sm ring-offset-background focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
         >
@@ -71,7 +71,7 @@ const FeedbackForm = () => {
       </div>
       
       <div>
-        <Label>Rating</Label>
+        <Label className="text-secondary">Rating</Label>
         <div className="flex gap-1 mt-1">
           {[1, 2, 3, 4, 5].map((star) => (
             <button
@@ -83,7 +83,7 @@ const FeedbackForm = () => {
               <Star
                 className={`h-8 w-8 ${
                   rating && rating >= star 
-                    ? "fill-yellow-400 text-yellow-400" 
+                    ? "fill-accent text-accent" 
                     : "text-gray-300"
                 }`}
               />
@@ -93,25 +93,25 @@ const FeedbackForm = () => {
       </div>
       
       <div>
-        <Label htmlFor="comment">Comment</Label>
+        <Label htmlFor="comment" className="text-secondary">Comment</Label>
         <Textarea
           id="comment"
           placeholder="Share your experience or suggestion..."
           value={comment}
           onChange={(e) => setComment(e.target.value)}
           rows={4}
-          className="resize-none"
+          className="resize-none border-primary/20 focus-visible:ring-primary"
         />
       </div>
       
       <div>
-        <Label htmlFor="image">Upload Image (Optional)</Label>
+        <Label htmlFor="image" className="text-secondary">Upload Image (Optional)</Label>
         <Input 
           id="image" 
           type="file" 
           accept="image/*"
           onChange={handleImageChange}
-          className="mt-1"
+          className="mt-1 border-primary/20 focus-visible:ring-primary"
         />
         {image && (
           <p className="text-sm text-muted-foreground mt-1">
@@ -120,7 +120,10 @@ const FeedbackForm = () => {
         )}
       </div>
       
-      <Button type="submit" className="w-full">
+      <Button 
+        type="submit" 
+        className="w-full bg-gradient-to-r from-secondary to-accent text-white hover:opacity-90"
+      >
         Submit Feedback
       </Button>
     </form>

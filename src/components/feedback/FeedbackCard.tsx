@@ -14,9 +14,9 @@ interface FeedbackCardProps {
 }
 
 const statusColors = {
-  pending: "bg-yellow-100 text-yellow-800",
-  processing: "bg-blue-100 text-blue-800",
-  completed: "bg-green-100 text-green-800",
+  pending: "bg-yellow-100 text-yellow-800 border-yellow-200",
+  processing: "bg-secondary/10 text-secondary border-secondary/20",
+  completed: "bg-primary/10 text-primary border-primary/20",
 };
 
 const FeedbackCard = ({
@@ -28,10 +28,10 @@ const FeedbackCard = ({
   imageUrl,
 }: FeedbackCardProps) => {
   return (
-    <Card className="w-full">
+    <Card className="w-full senelec-card border-primary/20 hover:shadow-md transition-all duration-300">
       <CardHeader className="pb-2 space-y-2">
         <div className="flex justify-between items-start">
-          <Badge variant="outline" className="capitalize">
+          <Badge variant="outline" className="capitalize bg-accent/10 text-accent border-accent/20">
             {category}
           </Badge>
           <Badge className={statusColors[status]}>
@@ -43,7 +43,7 @@ const FeedbackCard = ({
             <Star
               key={i}
               className={`h-4 w-4 ${
-                i < rating ? "fill-yellow-400 text-yellow-400" : "text-gray-300"
+                i < rating ? "fill-accent text-accent" : "text-gray-300"
               }`}
             />
           ))}
@@ -56,7 +56,7 @@ const FeedbackCard = ({
             <img
               src={imageUrl}
               alt="Feedback image"
-              className="rounded-md max-h-40 w-auto"
+              className="rounded-md max-h-40 w-auto border border-primary/20"
             />
           </div>
         )}

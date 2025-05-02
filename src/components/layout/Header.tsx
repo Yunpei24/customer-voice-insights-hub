@@ -16,9 +16,17 @@ const Header = () => {
     <header className="bg-primary text-primary-foreground shadow-md">
       <div className="container mx-auto px-4 py-3">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <MessageSquare className="h-6 w-6" />
-            <h1 className="text-xl font-bold">SENELEC Customer Voice</h1>
+          <div 
+            className="flex items-center gap-2 cursor-pointer" 
+            onClick={() => navigate("/")}
+          >
+            <div className="w-10 h-10 rounded-full senelec-gradient flex items-center justify-center">
+              <MessageSquare className="h-5 w-5 text-white" />
+            </div>
+            <div>
+              <h1 className="text-xl font-bold">SENELEC</h1>
+              <p className="text-xs text-primary-foreground/80">Customer Voice</p>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -26,7 +34,9 @@ const Header = () => {
             <Button variant="ghost" onClick={() => navigate("/")}>Dashboard</Button>
             <Button variant="ghost" onClick={() => navigate("/feedback")}>My Feedback</Button>
             <Button variant="ghost" onClick={() => navigate("/profile")}>Profile</Button>
-            <Button variant="outline">Log Out</Button>
+            <Button variant="secondary" className="bg-secondary text-white hover:bg-secondary/90">
+              Log Out
+            </Button>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -73,7 +83,7 @@ const Header = () => {
               <User className="mr-2 h-5 w-5" />
               Profile
             </Button>
-            <Button variant="outline" className="w-full justify-start">
+            <Button variant="secondary" className="w-full justify-start bg-secondary text-white hover:bg-secondary/90">
               <LogOut className="mr-2 h-5 w-5" />
               Log Out
             </Button>
