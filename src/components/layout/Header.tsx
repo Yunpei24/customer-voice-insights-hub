@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { Menu, X, MessageSquare, BarChart4, User, LogOut } from "lucide-react";
+import { Menu, X, MessageSquare, BarChart4, User, LogIn } from "lucide-react";
 
 const Header = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -25,7 +25,7 @@ const Header = () => {
             </div>
             <div>
               <h1 className="text-xl font-bold">SENELEC</h1>
-              <p className="text-xs text-primary-foreground/80">Voix du Client</p>
+              <p className="text-xs text-primary-foreground/80">Écho Client</p>
             </div>
           </div>
 
@@ -34,8 +34,8 @@ const Header = () => {
             <Button variant="ghost" onClick={() => navigate("/")}>Tableau de bord</Button>
             <Button variant="ghost" onClick={() => navigate("/feedback")}>Mes avis</Button>
             <Button variant="ghost" onClick={() => navigate("/profile")}>Profil</Button>
-            <Button variant="secondary" className="bg-secondary text-white hover:bg-secondary/90">
-              Déconnexion
+            <Button variant="secondary" className="bg-secondary text-white hover:bg-secondary/90" onClick={() => navigate("/login")}>
+              <LogIn className="mr-2 h-4 w-4" /> Connexion
             </Button>
           </nav>
 
@@ -83,9 +83,16 @@ const Header = () => {
               <User className="mr-2 h-5 w-5" />
               Profil
             </Button>
-            <Button variant="secondary" className="w-full justify-start bg-secondary text-white hover:bg-secondary/90">
-              <LogOut className="mr-2 h-5 w-5" />
-              Déconnexion
+            <Button 
+              variant="secondary" 
+              className="w-full justify-start bg-secondary text-white hover:bg-secondary/90"
+              onClick={() => {
+                navigate("/login");
+                setMobileMenuOpen(false);
+              }}
+            >
+              <LogIn className="mr-2 h-5 w-5" />
+              Connexion
             </Button>
           </nav>
         )}
